@@ -51,12 +51,18 @@ Code by Josh Knorr
       return `${hours}:${minutes}:${seconds}`;
     }
 
-    
+  
 
-    changeBackgroundColor();
+    function updatePage() {
+      document.getElementById("time").textContent = getCurrentTime();
+      changeBackgroundColor();
+    }
 
+    // Initial call to show clock and background color immediately 
+    updateClock();
 
-    document.getElementById("time").textContent = getCurrentTime();
+    // Update every 1 second (1000 ms)
+    setInterval(updateClock, 1000);
 
     
   </script>

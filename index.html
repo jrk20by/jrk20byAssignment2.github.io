@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!-- 
+Assignment 2: Tiem of Day
+COP4813 Summer 2025
+5/28/2025
+Code by Josh Knorr
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,6 +23,7 @@
   <h1>Course:COP4813  Web Applications Programming</h1>
   <h1>Major: Computer Science</h1>
   <h2>Welcome to my dynamic webpage!</h2>
+  <p id="time"></p>
 
   <script>
     function changeBackgroundColor() {
@@ -36,7 +43,22 @@
       document.body.style.backgroundColor = color;
     }
 
+    function getCurrentTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      return `${hours}:${minutes}:${seconds}`;
+    }
+
+    
+
     changeBackgroundColor();
+
+
+    document.getElementById("time").textContent = getCurrentTime();
+
+    
   </script>
 </body>
 </html>

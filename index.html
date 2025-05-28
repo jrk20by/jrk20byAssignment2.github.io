@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>First Last Name</h1>
+  <p><strong>Course:</strong> Your Course Name</p>
+  <p><strong>Major:</strong> Your Major</p>
+  <p>Welcome to my dynamic webpage!</p>
 
+  <script>
+    function setBackgroundColor() {
+      const hour = new Date().getHours();
+      let color;
+
+      if (hour >= 6 && hour < 12) {
+        color = "#FFFAE5"; // Morning: light yellow
+      } else if (hour >= 12 && hour < 18) {
+        color = "#E5F4FF"; // Afternoon: light blue
+      } else if (hour >= 18 && hour < 21) {
+        color = "#FFDAB9"; // Evening: peach
+      } else {
+        color = "#2C3E50"; // Night: dark blue
+      }
+
+      document.body.style.backgroundColor = color;
+    }
+
+    setBackgroundColor();
+  </script>
+</body>
+</html>

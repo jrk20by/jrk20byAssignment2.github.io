@@ -8,12 +8,12 @@ Code by Josh Knorr
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!--below code is for ease of viewability across multiple devices and screen sizes-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COP4813 SU25 Assignment 2</title>
+  <!-- CSS styling to specify transition parameters for background color -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
       transition: background-color 0.5s ease;
     }
   </style>
@@ -30,23 +30,27 @@ Code by Josh Knorr
   <p>Background colors change at 06:00, 12:00, 18:00, and 21:00</p>
 
   <script>
+    //definition of function to change background color depending on time of day
+    //function uses if statements to check hour of system clock and assign appropriat color
     function changeBackgroundColor() {
+      //declaration of hour variable, assigned a new date object
       const hour = new Date().getHours();
+      //declaration of color variable, to be assigned by if statements below
       let color;
 
       if (hour >= 6 && hour < 12) {
-        color = "#FFFAE5"; // Morning: light yellow
+        color = "#FFFAE5"; // Morning (6am–12pm): Color 1, light yellow
       } else if (hour >= 12 && hour < 18) {
-        color = "#E5F4FF"; // Afternoon: light blue
+        color = "#E5F4FF"; // Afternoon (12pm–6pm): Color 2, light blue
       } else if (hour >= 18 && hour < 21) {
-        color = "#FFDAB9"; // Evening: peach
+        color = "#FFDAB9"; // Evening (6pm–9pm): Color 3, peach
       } else {
-        color = "#2C3E50"; // Night: dark blue
+        color = "#2C3E50"; // Night (9pm–6am): Color 4, dark blue
       }
-
+      //sets background color of entire page to color variable
       document.body.style.backgroundColor = color;
     }
-
+    //definition of function to get current time
     function getCurrentTime() {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
@@ -56,7 +60,7 @@ Code by Josh Knorr
     }
 
   
-
+    //definition of function to update background color and clock if user stays on page
     function updatePage() {
       document.getElementById("time").textContent = getCurrentTime();
       changeBackgroundColor();
@@ -66,6 +70,7 @@ Code by Josh Knorr
     updatePage();
 
     // Update every 0.1 second (100 ms)
+    // variables kept local in order to be updated every time this function runs
     setInterval(updatePage, 100);
 
     

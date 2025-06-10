@@ -36,6 +36,8 @@ Code by Josh Knorr
   <br>
   <p>Background colors change at 06:00, 12:00, 18:00, and 21:00</p>
 
+  <img id="timeImage" src="" alt="Time of Day Image" />
+
   <script>
     //definition of function to change background color depending on time of day
     //function uses if statements to check hour of system clock and assign appropriat color
@@ -44,6 +46,7 @@ Code by Josh Knorr
       const hour = new Date().getHours();
       //declaration of color variable, to be assigned by if statements below
       let color;
+      let imgUrl = '';
 
       if (hour >= 6 && hour < 12) {
         color = "#FFFAE5"; // Morning (6am–12pm): Color 1, light yellow
@@ -51,11 +54,14 @@ Code by Josh Knorr
         color = "#E5F4FF"; // Afternoon (12pm–6pm): Color 2, light blue
       } else if (hour >= 18 && hour < 21) {
         color = "#FFDAB9"; // Evening (6pm–9pm): Color 3, peach
+        imgUrl = 'https://pixabay.com/photos/woman-flowers-beauty-model-pose-7089304/';
       } else {
         color = "#2C3E50"; // Night (9pm–6am): Color 4, dark blue
+        imgUrl = 'https://www.istockphoto.com/photo/joyful-stylish-young-woman-in-glasses-among-pink-tree-blossoms-concept-of-spring-new-gm2193714144-611930619?utm_source=pixabay&utm_medium=affiliate&utm_campaign=sponsored_photo&utm_content=adp_topbannerNone_media&utm_term=woman+flowers';
       }
       //sets background color of entire page to color variable
       document.body.style.backgroundColor = color;
+      img.src = imgUrl
     }
     //definition of function to get current time
     function getCurrentTime() {
